@@ -58,5 +58,16 @@ public class CursoResource {
 
 	  return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
 	}
+	
+	@RequestMapping(value = "/cursos/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> alterarDuracao(@PathVariable("id") int id,
+			@PathVariable("duracao") int duracao) {
+	  
+		Curso curso = cursos.get(id);
+		curso.setDuracao(String.valueOf("222"));
+		cursos.put(id, curso);
+
+	  return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
+	}
 
 }
