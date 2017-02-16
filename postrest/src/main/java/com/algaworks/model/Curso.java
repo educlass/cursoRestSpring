@@ -6,11 +6,20 @@ public class Curso {
 	private String nome;
 	private String duracao;
 
+	public Curso() {
+	}
+
 	public Curso(Integer id, String nome, String duracao) {
 		this.id = id;
 		this.nome = nome;
 		this.duracao = duracao;
 	}
+	
+//	public Curso(Curso curso) {
+//		this.id = curso.getId();
+//		this.nome = curso.getNome();
+//		this.duracao = curso.getDuracao();
+//	}
 
 	public Integer getId() {
 		return id;

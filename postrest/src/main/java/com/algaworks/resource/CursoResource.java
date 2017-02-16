@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,13 +62,12 @@ public class CursoResource {
 	
 	@RequestMapping(value = "/cursos/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> alterarDuracao(@PathVariable("id") int id,
-			@PathVariable("duracao") int duracao) {
+			@RequestBody Curso curso) {
 	  
-		Curso curso = cursos.get(id);
-		curso.setDuracao(String.valueOf("222"));
 		cursos.put(id, curso);
 
-	  return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
+//	  return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 
 }
