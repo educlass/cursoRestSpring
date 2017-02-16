@@ -5,8 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 
-@SpringBootApplication
+//@SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
 //@ComponentScan(basePackageClasses=CursoResource.class)
+@SpringBootApplication
 public class Main extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
