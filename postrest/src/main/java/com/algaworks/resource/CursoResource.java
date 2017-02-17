@@ -32,10 +32,21 @@ public class CursoResource {
 		cursos.put(2, c2);
 		cursos.put(3, c3);
 	}
-
+	
 	@RequestMapping(value = "/cursos", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<List<Curso>> listar() {
 		return new ResponseEntity<List<Curso>>(new ArrayList<Curso>(cursos.values()), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/login/1", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<Curso> listarPrivate() {
+		Curso curso = cursos.get(1);
+
+		  if (curso == null) {
+		    return new ResponseEntity<Curso>(HttpStatus.NOT_FOUND);
+		  }
+
+		  return new ResponseEntity<Curso>(curso, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/cursos/{id}", method = RequestMethod.GET)
